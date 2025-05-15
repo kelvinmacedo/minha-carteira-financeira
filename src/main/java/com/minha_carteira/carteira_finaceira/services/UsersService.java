@@ -3,9 +3,8 @@ package com.minha_carteira.carteira_finaceira.services;
 import com.minha_carteira.carteira_finaceira.Repositories.UsersRepository;
 import com.minha_carteira.carteira_finaceira.entities.UsersEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,8 +13,8 @@ public class UsersService {
     @Autowired
     private UsersRepository usersRepository;
 
+    @Transactional(readOnly = true) //-> Otimizar as operações de leitura.
     public List<UsersEntity> findAll(){
-
         return usersRepository.findAll();
     }
 }
