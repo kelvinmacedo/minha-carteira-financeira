@@ -3,6 +3,7 @@ package com.minha_carteira.carteira_finaceira.services;
 import com.minha_carteira.carteira_finaceira.Repositories.UsersRepository;
 import com.minha_carteira.carteira_finaceira.entities.UsersEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -14,6 +15,7 @@ public class UsersService {
     private UsersRepository usersRepository;
 
     public List<UsersEntity> findAll(){
+
         return usersRepository.findAll();
     }
 }
