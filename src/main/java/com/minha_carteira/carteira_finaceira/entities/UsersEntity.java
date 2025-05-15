@@ -15,10 +15,10 @@ public class UsersEntity {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "fist-name")
+    @Column(name = "fist_name")
     private String fistName;
 
-    @Column(name = "last-name")
+    @Column(name = "last_name")
     private String lastName;
 
     @Column(name = "email")
