@@ -1,0 +1,8 @@
+INSERT INTO USERS(FIST_NAME, LAST_NAME, EMAIL, PASSWORD)VALUES('alex', 'alves', 'alex.alves@gmail.com', '1234')
+INSERT INTO USERS(FIST_NAME, LAST_NAME, EMAIL, PASSWORD)VALUES('kelvin', 'max', 'kelvin.max@gmail.com', '4321')
+INSERT INTO USERS(FIST_NAME, LAST_NAME, EMAIL, PASSWORD)VALUES('roberto', 'fulano', 'roberto.fulano@gmail.com', '5678')
+INSERT INTO USERS(FIST_NAME, LAST_NAME, EMAIL, PASSWORD)VALUES('juliano', 'alves', 'juliano.alves@gmail.com', '8765')
+INSERT INTO USERS(FIST_NAME, LAST_NAME, EMAIL, PASSWORD)VALUES('carlos', 'teteu', 'carlos.teteu@gmail.com', '1357')
+INSERT INTO USERS(FIST_NAME, LAST_NAME, EMAIL, PASSWORD)VALUES('kaio', 'ferreira', 'kaio.ferreira@gmail.com', '7531')
+INSERT INTO USERS(FIST_NAME, LAST_NAME, EMAIL, PASSWORD)VALUES('lord', 'jubileu', 'lord.jubileu@gmail.com', '8910')
+INSERT INTO USERS(FIST_NAME, LAST_NAME, EMAIL, PASSWORD)VALUES('skinner', 'tucam', 'skinner.tucam@gmail.com', '0198')
