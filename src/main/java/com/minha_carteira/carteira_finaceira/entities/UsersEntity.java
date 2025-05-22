@@ -4,22 +4,22 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Entity
 @Getter
 @Setter
 @Table(name = "users")
-public class UsersEntity {
+public class UsersEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "fist_name")
-    private String fistName;
-
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "email")
     private String email;
@@ -33,8 +33,7 @@ public class UsersEntity {
 
     public UsersEntity(Long id, String fistName, String lastName, String email, String password) {
         this.id = id;
-        this.fistName = fistName;
-        this.lastName = lastName;
+        this.name = fistName;
         this.email = email;
         this.password = password;
     }
