@@ -6,20 +6,29 @@ import lombok.Setter;
 
 import java.io.Serializable;
 
-@Getter @Setter
+@Setter
+@Getter
 public class UsersDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
     private String name;
     private String email;
+    private String password;
 
     public UsersDto(){
     }
 
-    public UsersDto(Long id, String fistName, String lastName, String email) {
+    public UsersDto(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+
+    }
+
+    public UsersDto(Long id, String name, String email) {
         this.id = id;
-        this.name = fistName;
+        this.name = name;
         this.email = email;
     }
 
@@ -27,5 +36,8 @@ public class UsersDto implements Serializable {
         this.id = entity.getId();
         this.name = entity.getName();
         this.email = entity.getEmail();
+
+
     }
+
 }
