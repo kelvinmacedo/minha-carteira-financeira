@@ -1,15 +1,17 @@
 package com.minha_carteira.carteira_finaceira.controllers;
 
-import com.minha_carteira.carteira_finaceira.dto.UsersDto;
+import com.minha_carteira.carteira_finaceira.dto.users.UserCreateDto;
+import com.minha_carteira.carteira_finaceira.dto.users.UserDto;
 import com.minha_carteira.carteira_finaceira.services.UsersService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -19,22 +21,23 @@ public class UsersController {
     private UsersService usersService;
 
     @GetMapping
-    public ResponseEntity<List<UsersDto>> findAll(){
-        List<UsersDto> list = usersService.findAll();
+    public ResponseEntity<List<UserDto>> getAllUsers(){
+        List<UserDto> list = usersService.getAllUsers();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<UsersDto> findById(@PathVariable Long id){
-        UsersDto userDto= usersService.findById(id);
-        return ResponseEntity.ok().body(userDto);
+    public ResponseEntity<UserDto> getUserById(@PathVariable Long id){
+        UserDto user = usersService.getUserById(id);
+        return ResponseEntity.ok().body(user);
     }
 
-    @PostMapping(value = "/insert")
-    public ResponseEntity<UsersDto> insert(@RequestBody UsersDto usersDto) {
-        usersDto = usersService.insert(usersDto);
+
+    @PostMapping(value = "/create-user")
+    public ResponseEntity<UserDto> createUser(@RequestBody @Valid UserCreateDto userCreateDto) {
+        UserDto createUser = usersService.createUser(userCreateDto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/id")
-                .buildAndExpand(usersDto.getId()).toUri();
-        return ResponseEntity.created(uri).body(usersDto);
+                .buildAndExpand(createUser.getId()).toUri();
+        return ResponseEntity.created(uri).body(createUser);
     }
 }
