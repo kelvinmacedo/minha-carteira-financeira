@@ -5,6 +5,7 @@ import com.minha_carteira.carteira_finaceira.dto.users.UserCreateDto;
 import com.minha_carteira.carteira_finaceira.dto.users.UserDto;
 import com.minha_carteira.carteira_finaceira.entities.UsersEntity;
 import com.minha_carteira.carteira_finaceira.mappers.UserMapper;
+import com.minha_carteira.carteira_finaceira.services.exceptions.ResourceAlreadyExistsException;
 import com.minha_carteira.carteira_finaceira.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,9 @@ public class UsersService {
     }
 
     public UserDto createUser(UserCreateDto userDto) {
+        usersRepository.findByEmail(userDto.getEmail()).ifPresent(existingUser -> {
+            throw new ResourceAlreadyExistsException("E-mail já cadastrado! ");
+        });
         UsersEntity user = UserMapper.createDto(userDto);
         return UserMapper.toDto(usersRepository.save(user));
     }

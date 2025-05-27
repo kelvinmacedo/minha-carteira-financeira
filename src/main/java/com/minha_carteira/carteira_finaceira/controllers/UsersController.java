@@ -36,7 +36,7 @@ public class UsersController {
     @PostMapping(value = "/create-user")
     public ResponseEntity<UserDto> createUser(@RequestBody @Valid UserCreateDto userCreateDto) {
         UserDto createUser = usersService.createUser(userCreateDto);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/id")
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(createUser.getId()).toUri();
         return ResponseEntity.created(uri).body(createUser);
     }
