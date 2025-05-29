@@ -1,9 +1,9 @@
-INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('roberto','roberto.fulano@gmail.com', '5678')
-INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('juliano', 'juliano.alves@gmail.com', '8765')
-INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('carlos', 'carlos.teteu@gmail.com', '1357')
-INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('kaio', 'kaio.ferreira@gmail.com', '7531')
-INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('lord', 'lord.jubileu@gmail.com', '8910')
-INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('skinner','skinner.tucam@gmail.com', '0198')
+INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('roberto','roberto.fulano@gmail.com', '$2a$10$mo//V7OyEzeEBdZGpV.pTuKzlAFk/rUumSHtjCTG4uYFLA25Twceq')
+INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('juliano', 'juliano.alves@gmail.com', '$2a$10$1tejl06wVpWq7KhtUYnJAOgH1bFG7sdJd/rQeO2dsRyxoGqw.VMyi')
+INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('carlos', 'carlos.teteu@gmail.com', '$2a$10$BxwJFGm1Q3946e5zTX6mbeXOjhBtOMyDt.1REzdv6w2UJB8dHu1J.')
+INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('kaio', 'kaio.ferreira@gmail.com', '$2a$10$51w8fCR2rnFMTcON1pP7B.bxXcCEZ.g8jztP/yuKneg7dLywl.K6a')
+INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('lord', 'lord.jubileu@gmail.com', '$2a$10$WTQSS1rprmWxCFy6ApdLGO3hwd0acivvCggeD.tYoxnoI589cOhku')
+INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('skinner','skinner.tucam@gmail.com', '$2a$10$Msmwq4LM6IMoXotT62lGUO3PUb6teQ84xeB6ACaPnxLPaJssv.AI6')
 
 --TABLE WALLET-TYPE
 INSERT INTO WALLET_TYPE(NAME, USER_ID, STATUS)VALUES('CASA', 1, 'ATIVO')

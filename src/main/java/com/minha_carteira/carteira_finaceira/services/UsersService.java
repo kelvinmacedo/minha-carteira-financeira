@@ -8,6 +8,7 @@ import com.minha_carteira.carteira_finaceira.mappers.UserMapper;
 import com.minha_carteira.carteira_finaceira.services.exceptions.ResourceAlreadyExistsException;
 import com.minha_carteira.carteira_finaceira.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,9 @@ public class UsersService {
 
     @Autowired
     private UsersRepository usersRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Transactional(readOnly = true)
     public List<UserDto> getAllUsers(){
@@ -40,6 +44,7 @@ public class UsersService {
         usersRepository.findByEmail(userDto.getEmail()).ifPresent(existingUser -> {
             throw new ResourceAlreadyExistsException("E-mail já cadastrado! ");
         });
+        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         UsersEntity user = UserMapper.createDto(userDto);
         return UserMapper.toDto(usersRepository.save(user));
     }
