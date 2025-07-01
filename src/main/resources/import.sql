@@ -1,3 +1,4 @@
+--TABLE USERS
 INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('roberto','roberto.fulano@gmail.com', '$2a$10$mo//V7OyEzeEBdZGpV.pTuKzlAFk/rUumSHtjCTG4uYFLA25Twceq')
 INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('juliano', 'juliano.alves@gmail.com', '$2a$10$1tejl06wVpWq7KhtUYnJAOgH1bFG7sdJd/rQeO2dsRyxoGqw.VMyi')
 INSERT INTO USERS(NAME, EMAIL, PASSWORD)VALUES('carlos', 'carlos.teteu@gmail.com', '$2a$10$BxwJFGm1Q3946e5zTX6mbeXOjhBtOMyDt.1REzdv6w2UJB8dHu1J.')
