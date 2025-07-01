@@ -2,11 +2,10 @@ package com.minha_carteira.carteira_finaceira.controllers;
 
 import com.minha_carteira.carteira_finaceira.dto.WalletTypeDto;
 import com.minha_carteira.carteira_finaceira.services.WalletTypeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,8 +17,16 @@ public class WalletTypeController {
     private WalletTypeService walletTypeService;
 
     @GetMapping
-    public ResponseEntity<List<WalletTypeDto>> findAll(){
-        List<WalletTypeDto> list = walletTypeService.findAllWalletType();
+    public ResponseEntity<List<WalletTypeDto>> listAllWallet(){
+        List<WalletTypeDto> list = walletTypeService.listAllWalletType();
         return ResponseEntity.ok().body(list);
     }
+
+    @PostMapping(value = "/create-wallet")
+    public ResponseEntity<WalletTypeDto> createWalletType(@Valid @RequestBody WalletTypeDto walletTypeDto){
+        WalletTypeDto createdWalletType = walletTypeService.createWalletType(walletTypeDto);
+        return ResponseEntity.ok().body(createdWalletType);
+    }
+
+
 }
