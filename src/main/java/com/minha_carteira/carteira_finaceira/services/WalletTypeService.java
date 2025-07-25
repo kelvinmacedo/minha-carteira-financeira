@@ -36,4 +36,16 @@ public class WalletTypeService {
         entity = walletTypeRepository.save(entity);
         return new WalletTypeDto(entity);
     }
+
+    public WalletTypeDto deactivateWalletType(Long id) {
+        WalletTypeEntity walletTypeEntity = walletTypeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Wallet not found with id: " + id));
+
+        if (walletTypeEntity.getStatus() == WalletStatus.INATIVO){
+            throw new RuntimeException("Wallet already deativated");
+        }
+        walletTypeEntity.setStatus(WalletStatus.INATIVO);
+        walletTypeEntity = walletTypeRepository.save(walletTypeEntity);
+        return new WalletTypeDto(walletTypeEntity);
+    }
 }
