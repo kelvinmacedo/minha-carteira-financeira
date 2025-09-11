@@ -28,5 +28,9 @@ public class WalletTypeController {
         return ResponseEntity.ok().body(createdWalletType);
     }
 
-
+    @PutMapping(value = "/deactivate-wallet/{id}")
+    public ResponseEntity<WalletTypeDto> deactivaterWalletType(@PathVariable Long id) {
+        WalletTypeDto deactivateWalletType = walletTypeService.deactivateWalletType(id);
+        return ResponseEntity.ok().body(deactivateWalletType);
+    }
 }
